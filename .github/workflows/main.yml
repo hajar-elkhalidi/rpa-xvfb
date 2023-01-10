@@ -12,10 +12,11 @@ jobs:
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
+          pip install robotframework-pabot
           pip install -r requirements.txt
       - name: Run RobotFramework tests
         run: |
-          robot --outputdir results/ tests/
+          pabot --outputdir results/ tests/
       - name: Get report
         uses: actions/upload-artifact@v3
         with:
