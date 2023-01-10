@@ -15,4 +15,15 @@ jobs:
           pip install -r requirements.txt
       - name: Run RobotFramework tests
         run: |
-          robot tests/
+          robot --outputdir results/ tests/
+      - name: Get report
+        uses: actions/upload-artifact@v3
+        with:
+          name: report file
+          path: results/report.html
+      - name: Get log
+        uses: actions/upload-artifact@v3
+        with:
+          name: log file
+          path: results/log.html
+        
